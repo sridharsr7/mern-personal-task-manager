@@ -8,7 +8,7 @@ export default function Dashboard({ user, onLogout }) {
   const [editingTask, setEditingTask] = useState(null);
   const [error, setError] = useState('');
 
-  const API_URL = 'http://localhost:5700/api/tasks';
+  const API_URL = `${process.env.REACT_APP_API_URL}/api/tasks`;
 
   const fetchTasks = async () => {
     try {
