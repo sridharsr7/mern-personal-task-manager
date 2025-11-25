@@ -14,7 +14,7 @@ export default function Register({ setUser }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5700/api/auth/register', { username, password, email, mobile });
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, { username, password, email, mobile });
       setSuccess('Successfully registered! Redirecting to login...');
       setTimeout(() => {
         navigate('/login');
