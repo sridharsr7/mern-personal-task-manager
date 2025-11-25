@@ -18,7 +18,7 @@ export default function Login({ setUser }) {
     }
     try {
       setLoading(true);
-      const res = await axios.post('http://localhost:5700/api/auth/login', { username, password });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, { username, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.username);
       setUser({ token: res.data.token, username: res.data.username });
