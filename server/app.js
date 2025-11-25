@@ -23,6 +23,11 @@ app.use('/api/tasks', authenticateToken, taskRoutes);
 app.get('/', (req, res) => {
   res.send('API running');
 });
+const corsOptions = {
+  origin: ['https://mern-personal-task-manager-4.onrender.com'], // frontend deployed URL
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5700;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
